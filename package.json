@@ -1,0 +1,49 @@
+{
+  "name": "TypeScript-Service-CAP",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^5",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.8.19",
+    "cds-routing-handlers": "^3.0.6",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "cds2types": "^2.7.2",
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "dev": "npm run build:cds && nodemon",
+    "build": "npm run build:cds && npm run build:ts",
+    "build:cds": "echo 'Compiling cds sources...' && cds2types --cds ./srv/catalog-srv.cds --output ./src/entities.ts --prefix I -f && cds build && cp .cdsrc.json gen/srv",
+    "build:ts": "echo 'Compiling *.ts sources...' && tsc"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  }
+}

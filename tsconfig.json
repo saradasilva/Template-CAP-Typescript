@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "lib": ["ES6"],
+        "module": "commonjs",
+        "target": "ES6",  
+        "esModuleInterop": true,
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "outDir": "./gen/srv/srv",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "preserveConstEnums": true,
+        "skipLibCheck": true
+    },
+    "include": ["src"]
+}
